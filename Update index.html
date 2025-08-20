@@ -3,92 +3,304 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Night Shade FC</title>
+  <title>Night Shade FC - World's Best Fan Club</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Background gradient with multiple colors */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #000000, #ff6600, #1e90ff, #ff0000);
-      color: #fff;
-      text-align: center;
+    :root {
+      --main-bg: linear-gradient(120deg, #181a1b 0%, #232526 100%);
+      --glass-bg: rgba(30, 34, 38, 0.92);
+      --primary: #ff6600;
+      --secondary: #1e90ff;
+      --accent: #ffcc00;
+      --error: #ff0000;
+      --white: #fafafa;
+      --border: rgba(255,255,255,0.07);
+      --shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+      --fb: #4267B2;
+      --yt: #FF0000;
+      --ig: #E1306C;
     }
-
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--main-bg);
+      min-height: 100vh;
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: var(--white);
+      box-sizing: border-box;
+    }
     header {
-      background: rgba(0,0,0,0.8);
-      color: #fff;
-      padding: 20px;
-      border-bottom: 3px solid #ff6600;
+      background: var(--glass-bg);
+      box-shadow: var(--shadow);
+      padding: 36px 0 22px 0;
+      text-align: center;
+      border-bottom: 2px solid var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-
-    .container {
-      max-width: 800px;
-      margin: 20px auto;
-      background: rgba(255,255,255,0.05); /* slightly blue */
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    header h1 {
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 2.8rem;
+      color: var(--accent);
+      margin: 0 0 8px 0;
+      letter-spacing: 0.1em;
+      text-shadow: 0 8px 32px var(--primary);
     }
-
-    h1, h2 {
-      color: #ffcc00; /* red for headings */
+    header p {
+      font-size: 1.25rem;
+      color: var(--secondary);
+      margin: 0;
+      letter-spacing: 0.05em;
     }
-
-    p {
-      color: #ffffff; /* main text orange */
-      font-size: 1.1rem;
-      line-height: 1.5;
+    nav.social {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 18px;
     }
-
-    iframe {
-      width: 100%;
-      height: 360px;
-      border-radius: 10px;
-      margin-top: 15px;
-      border: 3px solid #ff6600; /* purple border */
-    }
-
-    .social-links a {
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 15px;
+    nav.social a {
+      display: inline-block;
+      padding: 8px 14px;
       border-radius: 8px;
-      transition: 0.3s;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.13);
     }
-
-    .social-links a:nth-child(1) { background: #ff0000; color: #fff; } /* YouTube red */
-    .social-links a:nth-child(2) { background: #1e90ff; color: #fff; } /* Instagram pink */
-    .social-links a:nth-child(3) { background: #ff6600; color: #fff; } /* Facebook blue */
-    .social-links a:nth-child(4) { background: #000000; color: #fff; } /* Twitter white */
-
-    .social-links a:hover {
-      transform: scale(1.1);
-      opacity: 0.8;
+    nav.social a.facebook { background: var(--fb); }
+    nav.social a.facebook:hover { background: #23345a; }
+    nav.social a.youtube { background: var(--yt); }
+    nav.social a.youtube:hover { background: #a30000; }
+    nav.social a.instagram { background: var(--ig); }
+    nav.social a.instagram:hover { background: #b22053; }
+    .container {
+      max-width: 880px;
+      margin: 34px auto 40px auto;
+      background: var(--glass-bg);
+      border-radius: 25px;
+      box-shadow: var(--shadow);
+      padding: 40px 28px;
+      border: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+    }
+    h2 {
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 12px;
+      letter-spacing: 0.06em;
+    }
+    .search-bar {
+      margin: 24px 0 32px 0;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .search-bar input[type="text"] {
+      padding: 10px;
+      border-radius: 7px;
+      border: none;
+      width: 220px;
+      font-size: 1rem;
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      outline: none;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.11);
+    }
+    .search-bar button {
+      padding: 10px 22px;
+      border-radius: 7px;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+    .search-bar button:hover {
+      background: var(--secondary);
+    }
+    .like-section {
+      margin: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .like-btn {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 13px 32px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: bold;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.21);
+      transition: transform 0.18s, background 0.2s;
+    }
+    .like-btn:active {
+      transform: scale(0.95);
+    }
+    .like-btn.liked {
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+    #likeCount {
+      font-size: 1.2rem;
+      color: var(--accent);
+      font-weight: bold;
+      padding-left: 6px;
+    }
+    .videos-section {
+      margin: 36px 0;
+      text-align: left;
+    }
+    .videos-section h3 {
+      color: var(--secondary);
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      letter-spacing: 0.04em;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 600px) {
+      .video-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .video-card {
+      background: rgba(255,255,255,0.04);
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      padding: 14px;
+      text-align: center;
+      transition: box-shadow 0.17s;
+    }
+    .video-card:hover {
+      box-shadow: 0 4px 22px var(--primary);
+    }
+    .video-title {
+      color: var(--accent);
+      font-size: 1.1rem;
+      margin: 12px 0 0 0;
+      font-weight: bold;
+    }
+    .comments-section {
+      margin: 44px 0 0 0;
+      background: rgba(255,255,255,0.03);
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .comments-section textarea {
+      width: 100%;
+      min-height: 60px;
+      border-radius: 8px;
+      border: none;
+      padding: 10px;
+      font-size: 1rem;
+      background: rgba(255,255,255,0.09);
+      color: var(--white);
+      margin-bottom: 10px;
+      resize: vertical;
+    }
+    .comments-section button {
+      background: var(--primary);
+      border: none;
+      border-radius: 7px;
+      color: #fff;
+      padding: 10px 28px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.17s;
+    }
+    .comments-section button:hover {
+      background: var(--secondary);
+    }
+    .comment-list {
+      margin-top: 14px;
+    }
+    .comment {
+      background: rgba(255,255,255,0.07);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 8px;
+      color: var(--white);
+      font-size: 1rem;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.06);
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Welcome to Night Shade FC Official website</h1>
-    <p>Sharing our highlights</p>
+    <h1>Night Shade FC</h1>
+    <p>The official fan page for Night Shade Football Club</p>
+    <!-- Social Media Links -->
+    <nav class="social">
+      <a class="facebook" href="https://facebook.com/NightShadeFC" target="_blank" rel="noopener">Facebook</a>
+      <a class="instagram" href="https://instagram.com/nightshadefc" target="_blank" rel="noopener">Instagram</a>
+      <a class="youtube" href="https://youtube.com/@NightShadeFC" target="_blank" rel="noopener">YouTube</a>
+    </nav>
   </header>
-
   <div class="container">
-    <h2>My Latest Videos</h2>
-    <!-- First Embedded YouTube Shorts Video -->
-    <iframe src="https://www.youtube.com/embed/W0eyjNEHwRw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-    <!-- Second Embedded YouTube Shorts Video -->
-    <iframe src="https://www.youtube.com/embed/tEw5DGGJPYg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-    <h2>Social Media</h2>
-    <div class="social-links">
-      <a href="https://www.youtube.com/" target="_blank">YouTube</a>
-      <a href="https://www.instagram.com/nightshades_fc?igsh=dTU1c2ZzNDdsbThv" target="_blank">Instagram</a>
-      <a href="https://www.facebook.com/share/19M4YmuWHH/" target="_blank">Facebook</a>
-      <a href="https://twitter.com/" target="_blank">Twitter/X</a>
+    <h2>Welcome to Night Shade FC</h2>
+    <div class="search-bar">
+      <input type="text" placeholder="Search players, matches, news...">
+      <button>Search</button>
     </div>
-
-    
+    <div class="like-section">
+      <button class="like-btn" onclick="likeSite(this)">👍 Like</button>
+      <span id="likeCount">0</span>
+    </div>
+    <section class="videos-section">
+      <h3>Featured Videos</h3>
+      <div class="video-grid">
+        <div class="video-card">
+          <iframe width="100%" height="340" src="https://www.youtube.com/embed/W0eyjNEHwRw?si=Wn3zBtRkrnWFaMOQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
+          <div class="video-title">Night Shade FC Highlights</div>
+        </div>
+      </div>
+    </section>
+    <section class="comments-section">
+      <h3>Fan Comments</h3>
+      <textarea id="commentInput" placeholder="Share your thoughts..."></textarea>
+      <button onclick="addComment()">Post Comment</button>
+      <div class="comment-list" id="commentList"></div>
+    </section>
+  </div>
+  <script>
+    // Like button logic
+    let likeCount = 0;
+    function likeSite(btn) {
+      likeCount++;
+      document.getElementById('likeCount').textContent = likeCount;
+      btn.classList.add('liked');
+      btn.textContent = '❤️ Liked!';
+      btn.disabled = true;
+    }
+    // Comments logic
+    function addComment() {
+      const input = document.getElementById('commentInput');
+      const value = input.value.trim();
+      if (value) {
+        const list = document.getElementById('commentList');
+        const comment = document.createElement('div');
+        comment.className = 'comment';
+        comment.textContent = value;
+        list.prepend(comment);
+        input.value = '';
+      }
+    }
+  </script>
+</body>
+</html>
